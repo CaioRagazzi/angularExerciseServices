@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.services';
+import { CounterService } from './services/counter.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,7 @@ export class AppComponent implements OnInit {
   counterActive: number = 0;
   counterInactive: number = 0;
 
-  constructor(private userService: UserService) { }
-
-  ngOnInit(){
-    this.counterActive = this.userService.counterActive;
-    this.counterInactive = this.userService.counterInactive;
-  }
+  constructor(private userService: UserService, private counterService: CounterService) { }
 
   onSetToInactive(id: number) {
     this.inactiveUsers.push(this.activeUsers[id]);
